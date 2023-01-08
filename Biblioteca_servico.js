@@ -21,7 +21,7 @@ module.exports= {
     return newPromise((aceito, rejeitado) => {
 
     db.query ('SELECT * FROM livros WHERE id=?', [id], (error, results)=>{
-        if (error) {rejeitado(error); return; }
+        if (error) {rejeitado(error); return};
           if (results.length>0){
             aceito(results[0]);
            }else{
@@ -38,7 +38,7 @@ module.exports= {
     db.query ('INSERT INTO livros(titulo, autor) VALUES (?,?)',
      [titulo,autor], 
      (error, results)=> {
-      if (error) {rejeitado(error); return; }
+      if (error) {rejeitado(error); return};
       aceito (results.insertId);
         }
     );
@@ -52,7 +52,7 @@ module.exports= {
     db.query ('UPDATE livros SET titulo = ?, autor = ? WHERE id= ?',
     [titulo,autor, id], 
      (error, results)=> {
-      if (error) { rejeitado(error); return; }
+      if (error) { rejeitado(error); return};
       aceito (results);
         }
     );
