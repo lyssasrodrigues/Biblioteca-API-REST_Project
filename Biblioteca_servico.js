@@ -20,7 +20,7 @@ module.exports= {
   buscarum: (id)=> {
     return newPromise((aceito, rejeitado) => {
 
-    db.query ('SELECT * FROM books WHERE id=?', [id], (error, results)=>{
+    db.query ('SELECT * FROM livros WHERE id=?', [id], (error, results)=>{
         if (error) {rejeitado(error); return; }
           if (results.length>0){
             aceito(results[0]);
